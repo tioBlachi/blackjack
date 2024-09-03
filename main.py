@@ -11,7 +11,7 @@ if __name__ == '__main__':
     while game.getRunning():
 
         while game.getPlayerTurn():
-            choice = input("What would you like to do?\n1. Hit\n2. Stand\n3. Stats\n4. Quit")
+            choice = input("What would you like to do?\n1. Hit\n2. Stand\n3. Stats\n4. Quit\n")
             if choice == "1":
                 game.hitPlayer()
                 game.check_winner()
@@ -24,10 +24,11 @@ if __name__ == '__main__':
                 game.setRunning(False)
                 break
 
-        game.setDealerTurn(True)
-        print(f"Dealer has {game.getDealerHand()[0][0]} of {game.getDealerHand()[0][1]} and {game.getDealerHand()[1][0]} of {game.getDealerHand()[1][1]}")
-        print(f"Dealer Hand Total: {game.getDealerHandVal()}")
-        game.check_dealer_blackjack()
-        while game.getDealerTurn():
-            game.hitDealer()
-            game.check_winner()
+            if game.getRunning() and not game.getPlayerTurn():
+                game.setDealerTurn(True)
+                print(f"Dealer has {game.getDealerHand()[0][0]}{game.getDealerHand()[0][1]} and {game.getDealerHand()[1][0]}{game.getDealerHand()[1][1]}")
+                print(f"Dealer Hand Total: {game.getDealerHandVal()}")
+                game.check_dealer_blackjack()
+            while game.getDealerTurn():
+                game.hitDealer()
+                game.check_winner()

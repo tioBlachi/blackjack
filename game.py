@@ -134,6 +134,7 @@ class Blackjack:
 
 
     def reset(self):
+    while True:
         choice = input("Play again? (Y/N)").lower()
         if choice == 'y':
             self.playerHandVal = 0
@@ -149,11 +150,15 @@ class Blackjack:
             print(f"           GAME #{self.totalGames}             ")
             self.drawPlayerHand()
             self.drawDealerHand()
+            break
         elif choice == 'n':
             self.running = False
             self.playerTurn = False
             self.dealerTurn = False
             print("Thank you for playing!")
+            break
+        else:
+            print("Invalid input! Please enter either 'y' or 'n'.")
 
     def check_dealer_blackjack(self):
         if self.dealerBlackjack:

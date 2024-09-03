@@ -23,11 +23,13 @@ if __name__ == '__main__':
                 print("Thanks for playing!")
                 game.setRunning(False)
                 break
+            else:
+                print("Invalid input! Enter 1, 2, 3, or 4")
 
             if game.getRunning() and not game.getPlayerTurn():
                 game.setDealerTurn(True)
                 print(f"Dealer has {game.getDealerHand()[0][0]}{game.getDealerHand()[0][1]} and {game.getDealerHand()[1][0]}{game.getDealerHand()[1][1]}")
-                print(f"Dealer Hand Total: {game.getDealerHandVal()}")
+                print(f"Dealer Hand Total: {game.getDealerHandVal()}\n")
                 game.check_dealer_blackjack()
             while game.getDealerTurn():
                 game.hitDealer()

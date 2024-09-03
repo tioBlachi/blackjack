@@ -1,2 +1,2 @@
-# blackjack
-Console blackjack game
+# Blackjack
+Console blackjack game to practice Python

@@ -20,8 +20,9 @@ if __name__ == '__main__':
             elif choice == "3":
                 game.showStats()
             elif choice == "4":
-                print("Thanks for playing!")
                 game.setRunning(False)
+                print("\nThanks for playing!\n")
+                game.showStats()
                 break
             else:
                 print("Invalid input! Enter 1, 2, 3, or 4")

@@ -20,22 +20,27 @@ class Game:
         while self.running:
             print()
             time.sleep(.75)
-            choice = input("What would you like to do?\n1. Hit\n2. Stand\n3. See Stats\n4. Quit")
-            match choice:
-                case "1":
-                    self.hitPlayer()
-                case "2":
-                    self.hitDealer()
-                case "3":
-                    self.show_stats()
-                case "4":
-                    self.running = False
-                    time.sleep(.75)
-                    print()
-                    print("Thank you for playing!")
-                    print()
-                    time.sleep(.75)
-                    self.show_stats()
+            try:
+                choice = input("What would you like to do?\n1. Hit\n2. Stand\n3. See Stats\n4. Quit")
+                match choice:
+                    case "1":
+                        self.hitPlayer()
+                    case "2":
+                        self.hitDealer()
+                    case "3":
+                        self.show_stats()
+                    case "4":
+                        self.running = False
+                        time.sleep(.75)
+                        print()
+                        print("Thank you for playing!")
+                        print()
+                        time.sleep(.75)
+                        self.show_stats()
+                    case _:
+                        print("Invalid input. Please enter 1, 2, 3 or 4")
+            except Exception as e:
+                print(f"An error occured: {e}")
 
     def deal(self):
         print("Welcome to Blackjack!")
@@ -54,7 +59,6 @@ class Game:
         self.dealerHand.append(self.deck.pop(0))
         self.playerHand.append(self.deck.pop(0))
         self.dealerHand.append(self.deck.pop(0))
-
 
         time.sleep(.75)
         print(f"Your hand: {self.playerHand[0][0]}{self.playerHand[0][1]} and {self.playerHand[1][0]}{self.playerHand[1][1]}")
@@ -243,4 +247,3 @@ class Game:
                         print()
             except Exception as e:
                 print(f"An error has occurred: {e}")
-
